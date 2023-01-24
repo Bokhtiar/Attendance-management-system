@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
 use App\Traits\Network\UserNetwork;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -85,6 +85,16 @@ class UserController extends Controller
 
             $this->UserFindById($id)->delete();
             return back()->with('success', 'Employee deleted');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    /* user profile  */
+    public function profile(){
+        try {
+            $edit = $this->UserFindById(Auth::id());
+            return view('modules.user.create', compact('edit'));
         } catch (\Throwable $th) {
             throw $th;
         }

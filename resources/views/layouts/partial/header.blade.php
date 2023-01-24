@@ -10,16 +10,14 @@
 
     
 
+
     <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
-
-          
-
-            
+        <ul class="d-flex align-items-center">            
             <li class="nav-item dropdown pe-3">
-
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">name</span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">
+                        <img height="20px" width="20px" class="rounded rounded-full" src="/images/users/{{ Auth::user()->image }}" alt="">
+                    </span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -32,7 +30,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="">
+                        <a class="dropdown-item d-flex align-items-center" href="@route('profile')">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>

@@ -26,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 /* user create */
 Route::resource('user', UserController::class);
+Route::get('profile', [UserController::class, 'profile'])->name('profile');

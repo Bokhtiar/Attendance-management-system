@@ -6,7 +6,9 @@
 @section('css')
 @endsection
 
-@component('components.brad-crumbs')
+@component('components.brad-crumbs',[
+    'title' => "Dashboard"
+])
     
 @endcomponent
 
