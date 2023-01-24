@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('permanent_address');
             $table->string('present_address');
             $table->integer('role_id')->default(1);
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->integer('designation_id');
             $table->integer('salary');
             $table->tinyInteger('status')->default(0);

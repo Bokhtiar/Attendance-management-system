@@ -29,7 +29,7 @@
             @component('components.text-input', [
                 'label' => 'Email address.',
                 'type' => 'email',
-                'name' => 'l_name',
+                'name' => 'email',
                 'placeholder' => 'example@gmail.com',
                 'required' => true,
             ])
@@ -41,17 +41,74 @@
             @component('components.text-input', [
                 'label' => 'Phone',
                 'type' => 'number',
-                'name' => 'l_name',
+                'name' => 'phone',
                 'placeholder' => '018xxxxxxxxx',
-                "max" => 11
             ])
             @endcomponent
         </div>
         <!--end phone -->
 
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            @component('components.text-input', [
+                'label' => 'Permanent address',
+                'type' => 'text',
+                'name' => 'permanent_address',
+                'placeholder' => "Dhaka",
+            ])
+            @endcomponent
+        </div>
+        <!--parmanents address -->
+
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            @component('components.text-input', [
+                'label' => 'Present address',
+                'type' => 'text',
+                'name' => 'present_address',
+                'placeholder' => 'Dhaka',
+            ])
+            @endcomponent
+        </div>
+        <!--end present_address -->
 
 
-        <input type="submit" class="btn btn-danger" name="" value="Create user" id="">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            @component('components.text-input', [
+                'label' => 'Designation',
+                'type' => 'text',
+                'name' => 'designation_id',
+                'placeholder' => '1',
+            ])
+            @endcomponent
+        </div>
+        <!--end designation id -->
+
+
+        <div class="col-md-6 col-lg-6 col-sm-12">
+            @component('components.text-input', [
+                'label' => 'Salary',
+                'type' => 'number',
+                'name' => 'salary',
+                'placeholder' => '205000',
+            ])
+            @endcomponent
+        </div>
+        <!--end present_address -->
+
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            @component('components.text-input', [
+                'label' => 'Password',
+                'type' => 'text',
+                'name' => 'password',
+                'placeholder' => '123456789',
+            ])
+            @endcomponent
+        </div>
+        <!--end present_address -->
+
+        @component('components.primary-button',[
+            "name" => "Create employee"
+        ])
+        @endcomponent
 
 
     </div>
