@@ -1,4 +1,7 @@
-<form action="">
+<form action="@route('user.store')" enctype="multipart/form-data" method="POST">
+    @method('post')
+    @csrf
+
     <div class="row">
 
         <div class="col-md-6 col-lg-6 col-sm-12">
@@ -7,7 +10,7 @@
                 'type' => 'text',
                 'name' => 'f_name',
                 'placeholder' => 'jhon',
-                "required" => true
+                'required' => true,
             ])
             @endcomponent
         </div>
@@ -19,7 +22,7 @@
                 'type' => 'text',
                 'name' => 'l_name',
                 'placeholder' => 'sina',
-                'required' => true                
+                'required' => true,
             ])
             @endcomponent
         </div>
@@ -53,7 +56,7 @@
                 'label' => 'Permanent address',
                 'type' => 'text',
                 'name' => 'permanent_address',
-                'placeholder' => "Dhaka",
+                'placeholder' => 'Dhaka',
             ])
             @endcomponent
         </div>
@@ -105,9 +108,7 @@
         </div>
         <!--end present_address -->
 
-        @component('components.primary-button',[
-            "name" => "Create employee"
-        ])
+        @component('components.primary-button', ['name' => 'Create employee'])
         @endcomponent
 
 
