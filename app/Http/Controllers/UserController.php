@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
 use App\Traits\Network\UserNetwork;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -80,7 +82,7 @@ class UserController extends Controller
     {
         try {
             $user = User::find($id);
-            $path = public_path()."/images/users/".$user->image;
+            $path = public_path() . "/images/users/" . $user->image;
             unlink($path);
 
             $this->UserFindById($id)->delete();
@@ -91,12 +93,45 @@ class UserController extends Controller
     }
 
     /* user profile  */
-    public function profile(){
+    public function profile()
+    {
         try {
-            $edit = $this->UserFindById(Auth::id());
-            return view('modules.user.create', compact('edit'));
+            $user = $this->UserFindById(Auth::id());
+            return view('modules.user.profile', compact('user'));
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+
+    /* change password */
+    public function change_password(Request $request)
+    {
+        $this->validate($request, [
+            'old_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $hashedpassword = Auth::user()->password;
+
+        if (Hash::check($request->old_password, $hashedpassword)) {
+            if (!Hash::check($request->password, $hashedpassword)) {
+                $user = User::find(Auth::id());
+                $user->password = Hash::make($request->password);
+                $user->save();
+                Auth::logout();
+                return redirect()->route('login');
+            } else {
+                return redirect()->back()->with('warning', 'Cureent Password match');;
+            }
+        } else {
+            return redirect()->back()->with('warning', 'Password dont match');
+        }
+    }
+
+    /* auth logout */
+    public function logouts()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

@@ -17,13 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+})->middleware('auth');;
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-/* user create */
-Route::resource('user', UserController::class);
-Route::get('profile', [UserController::class, 'profile'])->name('profile');
+Route::group(["middleware" => ['auth']], function () {
+    /* user create */
+    Route::resource('user', UserController::class);
+    Route::get('profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('logouts', [UserController::class, 'logouts'])->name('logouts');
+    Route::put('password/change', [UserController::class, 'change_password'])->name('password.change');
+});
