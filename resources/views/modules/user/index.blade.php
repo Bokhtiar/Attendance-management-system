@@ -18,10 +18,10 @@
                 'route' => 'user',
             
                 'thead1' => 'First Name',
-                'tdata1' => 'fname',
+                'tdata1' => 'f_name',
             
                 'thead2' => 'Last Name',
-                'tdata2' => 'fname',
+                'tdata2' => 'l_name',
             
                 'thead3' => 'Email',
                 'tdata3' => 'email',

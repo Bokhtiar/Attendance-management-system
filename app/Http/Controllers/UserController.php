@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserValidation;
+use App\Models\User;
 use App\Traits\Network\UserNetwork;
 use Illuminate\Http\Request;
 
@@ -12,13 +13,22 @@ class UserController extends Controller
     /* Display a listing of the resource. */
     public function index()
     {
-        //
+        try {
+            $users = $this->userList();
+            return view('modules.user.index', compact('users'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /* Show the form for creating a new resource */
     public function create()
     {
-        return view('modules.user.create');
+        try {
+            return view('modules.user.create');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /* Store a newly created resource in storage. */
@@ -35,7 +45,12 @@ class UserController extends Controller
     /* Display the specified resource. */
     public function show($id)
     {
-        //
+        try {
+            $show = $this->UserFindById($id);
+            return view('modules.user.show', compact('show'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /* Show the form for editing the specified resource. */

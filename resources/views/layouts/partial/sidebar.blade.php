@@ -16,6 +16,11 @@
             </a>
             <ul id="Bed-manager-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
+                    <a href="@route('user.index')">
+                        <i class="bi bi-circle"></i><span>Employee</span>
+                    </a>
+                </li>
+                <li>
                     <a href="@route('user.create')">
                         <i class="bi bi-circle"></i><span>Employee Create</span>
                     </a>
