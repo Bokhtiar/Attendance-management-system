@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,7 @@ Route::group(["middleware" => ['auth']], function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
     Route::get('logouts', [UserController::class, 'logouts'])->name('logouts');
     Route::put('password/change', [UserController::class, 'change_password'])->name('password.change');
+
+    /* setting */
+    Route::resource('role', RoleController::class);
 });

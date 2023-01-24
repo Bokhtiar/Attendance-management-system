@@ -11,17 +11,17 @@ trait RoleNetwork
     {
         return Role::all();
     }
-
+ 
     /* store a newly resource*/
     public function ResourceStoreRole($request, $role = null)
     {
         return array(
-            'name' => $request->password,
+            'name' => $request->name,
         );
     }
 
     /* store resource */
-    public function UserStore($request)
+    public function RoleStore($request)
     {
         return Role::create($this->ResourceStoreRole($request));
     }

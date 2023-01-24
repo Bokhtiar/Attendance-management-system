@@ -26,7 +26,20 @@
                     </a>
                 </li>
             </ul>
-        </li><!-- End Bed-manager Nav -->
+        </li><!-- End employee Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#setting" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Employee</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="setting" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="@route('role.index')">
+                        <i class="bi bi-circle"></i><span>Role</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End setting Nav -->
 
         <li class="nav-item">
             <a class="nav-link " href="">
