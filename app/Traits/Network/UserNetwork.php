@@ -2,7 +2,7 @@
 
 namespace App\Traits\Network;
 
-use App\Models\Room;
+use Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,17 +12,27 @@ trait UserNetwork
     /* display a resouce list */
     public function userList()
     {
-        return User::where('role_id',1)->get();
+        return User::where('role_id', 1)->get();
     }
 
     /* store a newly resource*/
-    public function ResourceStoreUser($request, $user=null){
+    public function ResourceStoreUser($request, $user = null)
+    {
+        if ($request->hasFile('image')) {
+            $image = Image::make($request->file('image'));
+            $imageName = time() . '-' . $request->file('image')->getClientOriginalName();
+            $destinationPath = public_path('images/users/');
+            $image->save($destinationPath . $imageName);
+        } else {
+            $imageName = $user->image;
+        }
+
         return array(
             'f_name' => $request->f_name,
             'l_name' => $request->l_name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'image' => $request->image,
+            'image' => $imageName,
             'permanent_address' => $request->permanent_address,
             'present_address' => $request->present_address,
             'created_by' => Auth::user()->id,

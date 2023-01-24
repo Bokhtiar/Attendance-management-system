@@ -6,8 +6,8 @@
 @section('css')
 @endsection
 
-@component('components.brad-crumbs',[
-    'title' => "User Create"
+@component('components.brad-crumbs', [
+    'title' => 'User Create',
 ])
 @endcomponent
 
@@ -16,8 +16,8 @@
         <div class="card-body">
             <h5 class="card-title">Employee Create</h5>
 
-            @component('components.form.user',[
-                "edit" => @$edit
+            @component('components.form.user', [
+                'edit' => @$edit,
             ])
             @endcomponent
 

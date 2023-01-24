@@ -19,7 +19,7 @@
     <div class="card-body">
         <div class="row my-4">
             <div class="col-md-3 col-lg-3 col-sm-12 text-center">
-                <img height="250px" width="250px" class="rounded " src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+                <img height="250px" width="250px" class="rounded " src="/images/users/{{ $show->image }}" alt="">
             </div>
             <div class="col-md-8 col-lg-8 col-sm-12 my-auto">
                 <span><strong>Email:</strong> {!! $show->email !!} </span> <br>

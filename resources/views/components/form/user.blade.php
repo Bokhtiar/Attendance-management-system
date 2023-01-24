@@ -113,7 +113,7 @@
     </div>
     <!--end present_address -->
 
-    <div class="col-md-12 col-lg-12 col-sm-12">
+    <div class="col-md-6 col-lg-6 col-sm-12">
         @component('components.text-input', [
             'label' => 'Password',
             'type' => 'text',
@@ -125,6 +125,16 @@
         @endcomponent
     </div>
     <!--end present_address -->
+
+    <div class="col-md-6 col-lg-6 col-sm-12">
+        @component('components.file-input', [
+            'label' => 'User profile image',
+            'type' => 'file',
+            'name' => 'image',
+            'value' => @$edit->image,
+        ])
+        @endcomponent
+    </div>
 
     @component('components.primary-button', ['name' => @$edit ? 'Update employee' : 'Create employee'])
     @endcomponent
