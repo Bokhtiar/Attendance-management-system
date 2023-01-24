@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 trait UserNetwork
 {
-    /* list of Room */
+    /* display a resouce list */
     public function userList()
     {
         return User::where('role_id',1)->get();
     }
 
-
-    /* store resource database field*/
+    /* store a newly resource*/
     public function ResourceStoreUser($request, $user=null){
         return array(
             'f_name' => $request->f_name,
@@ -26,7 +25,7 @@ trait UserNetwork
             'image' => $request->image,
             'permanent_address' => $request->permanent_address,
             'present_address' => $request->present_address,
-            // 'created_by' => Auth::user()->id,
+            'created_by' => Auth::user()->id,
             'designation_id' => $request->designation_id,
             'salary' => $request->salary,
             'password' => Hash::make($request->password),
