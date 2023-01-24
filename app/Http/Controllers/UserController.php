@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserValidation;
 use App\Traits\Network\UserNetwork;
 use Illuminate\Http\Request;
 
@@ -21,11 +22,11 @@ class UserController extends Controller
     }
 
     /* Store a newly created resource in storage. */
-    public function store(Request $request)
+    public function store(UserValidation $request)
     {
         try {
             $this->UserStore($request);
-            return redirect()->route('user.index');
+            return redirect()->route('user.index')->with('success', "User created.");
         } catch (\Throwable $th) {
             throw $th;
         }
