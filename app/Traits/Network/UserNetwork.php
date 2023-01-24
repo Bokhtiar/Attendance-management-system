@@ -45,7 +45,7 @@ trait UserNetwork
     }
 
     /* resource update */
-    public function RoomUpdate($request, $user_id)
+    public function UserUpdate($request, $user_id)
     {
         $user = User::find($user_id);
         return $user->update($this->ResourceStoreUser($request, $user));

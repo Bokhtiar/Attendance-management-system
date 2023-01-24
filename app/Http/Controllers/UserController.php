@@ -56,13 +56,23 @@ class UserController extends Controller
     /* Show the form for editing the specified resource. */
     public function edit($id)
     {
-        //
+        try {
+            $edit = $this->UserFindById($id);
+            return view('modules.user.create', compact('edit'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /* Update the specified resource in storage. */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->UserUpdate($request,$id);
+            return redirect()->route('user.index')->with('success', 'User updated.');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /* Remove the specified resource from storage. */
