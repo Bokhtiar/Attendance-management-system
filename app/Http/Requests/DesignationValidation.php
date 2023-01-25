@@ -24,7 +24,7 @@ class DesignationValidation extends FormRequest
     public function rules()
     {
         return [
-            'deparment_id' => "required",
+            'department_id' => "required",
             'name' => 'required',
         ];
     }

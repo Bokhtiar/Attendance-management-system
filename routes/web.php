@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -35,6 +36,9 @@ Route::group(["middleware" => ['auth']], function () {
 
     /* department */
     Route::resource('department', DepartmentController::class);
+
+/* designation */
+    Route::resource('designation', DesignationController::class);
 
     /* setting */
     Route::resource('role', RoleController::class);

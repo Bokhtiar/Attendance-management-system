@@ -11,11 +11,12 @@
         'label' => 'Name.',
         'type' => 'text',
         'name' => 'name',
-        "placeholder" => "software eng.",
+        "placeholder" => "Developer.",
         'required' => true,
         "value" => @$edit->name,
     ])
     @endcomponent
+
 
     @component('components.primary-button', ['name' => @$edit ? 'Update department' : 'Create department'])
     @endcomponent
