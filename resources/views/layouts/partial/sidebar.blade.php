@@ -39,15 +39,15 @@
                 <i class="bi bi-menu-button-wide"></i><span>Department</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="department" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        
-                    <li>
-                        <a href="@route('department.index')">
-                            <i class="bi bi-circle"></i><span>Department</span>
-                        </a>
-                    </li>
-              
-                    
-            
+
+                <li>
+                    <a href="@route('department.index')">
+                        <i class="bi bi-circle"></i><span>Department</span>
+                    </a>
+                </li>
+
+
+
             </ul>
         </li><!-- End Department Nav -->
 
@@ -57,15 +57,30 @@
                 <i class="bi bi-menu-button-wide"></i><span>Designation</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="designation" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        
-                    <li>
-                        <a href="@route('designation.index')">
-                            <i class="bi bi-circle"></i><span>Designation</span>
-                        </a>
-                    </li>
-              
-                    
-            
+                <li>
+                    <a href="@route('designation.index')">
+                        <i class="bi bi-circle"></i><span>Designation</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End designation Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#attendance" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Attendance</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="attendance" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="@route('attendance.index')">
+                        <i class="bi bi-circle"></i><span>Attendance</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@route('attendance.create')">
+                        <i class="bi bi-circle"></i><span>Attendance Create</span>
+                    </a>
+                </li>
             </ul>
         </li><!-- End designation Nav -->
 

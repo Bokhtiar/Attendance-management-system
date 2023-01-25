@@ -74,7 +74,7 @@ class UserController extends Controller
     {
         try {
             $this->UserUpdate($request, $id);
-            return redirect()->route('user.index')->with('success', 'Employee updated.');
+            return redirect()->back()->with('success', 'Employee updated.');
         } catch (\Throwable $th) {
             throw $th;
         }

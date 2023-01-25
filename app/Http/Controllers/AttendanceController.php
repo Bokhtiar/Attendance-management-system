@@ -3,40 +3,65 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Traits\Network\AttendanceNetwork;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use AttendanceNetwork;
+    /* Display a listing of the resource. */
     public function index()
     {
-        //
+        try {
+            $attendances = $this->AttendanceList();
+            return view('modules.attendance.index', compact('attendances'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /* Show the form for creating a new resource.*/
     public function create()
     {
-        //
+        try {
+            return view('modules.attendance.create');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    /* Store a newly created resource in punchIn.*/
+    public function punchIn()
     {
-        //
+        $currentTime = Carbon::now();
+        $date = $currentTime->toArray();
+        $alreadyPunchIn =  Attendance::where('user_id', Auth::id())->where('date', $date['day'])->where('month', $date['month'])->where('year', $date['year'])->first();
+        if ($alreadyPunchIn) {
+            return redirect()->route('attendance.index')->with('warning', "Already punch in");
+        }
+        $this->AttendancePunchIn();
+        return redirect()->route('attendance.index')->with('success', "Welcome to grapView");
     }
+
+    /* Store a newly created resource in punchOut.*/
+    public function punchOut()
+    {
+        try {
+            $currentTime = Carbon::now();
+            $date = $currentTime->toArray();
+            $PunchIn =  Attendance::where('user_id', Auth::id())->where('date', $date['day'])->where('month', $date['month'])->where('year', $date['year'])->whereNotNull('in')->whereNull('out')->first();
+            if ($PunchIn) {
+                $this->AttendancePunchOut($PunchIn->attendance_id);
+                return redirect()->route('attendance.index')->with('success', 'Thank you');
+            }
+            return redirect()->route('attendance.index')->with('warning', "Someting went wrong.");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
 
     /**
      * Display the specified resource.

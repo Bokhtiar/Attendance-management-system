@@ -20,7 +20,7 @@
 
                     <img height="200px" src="/images/users/{{ $user->image }}" alt="Profile" class="rounded-circle">
                     <h2>{{ $user->f_name . '' . $user->l_name }}</h2>
-                    <h3>{{ $user->designation_id }}</h3>
+                    <h3>{{ $user->designation ? $user->designation->name: "" }}</h3>
                     <div class="social-links mt-2">
                         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -77,7 +77,7 @@
 
                             <div class="row">
                                 <div class="col-lg-3 col-md-4 label">Job</div>
-                                <div class="col-lg-9 col-md-8">Web Designer</div>
+                                <div class="col-lg-9 col-md-8">{{$user->designation ? $user->designation->name : ""}}</div>
                             </div>
 
                             <div class="row">

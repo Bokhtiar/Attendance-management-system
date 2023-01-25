@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\PermissionController;
@@ -39,6 +40,11 @@ Route::group(["middleware" => ['auth']], function () {
 
     /* designation */
     Route::resource('designation', DesignationController::class);
+
+    /* attendance */
+    Route::resource('attendance', AttendanceController::class);
+    Route::get('punch/in', [AttendanceController::class, 'punchIn']);
+    Route::get('punch/out', [AttendanceController::class, 'punchOut']);
 
     /* setting */
     Route::resource('role', RoleController::class);
