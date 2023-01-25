@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DepartmentValidation;
 use App\Traits\Network\DepartmentNetwork;
 use COM;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class DepartmentController extends Controller
     }
 
     /* Store a newly created resource in storage. */
-    public function store(Request $request)
+    public function store(DepartmentValidation $request)
     {
         try {
             $this->DepartmentStore($request);
@@ -67,7 +68,7 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DepartmentValidation $request, $id)
     {
         try {
             $this->DepartmentUpdate($request, $id);
