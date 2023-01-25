@@ -16,7 +16,7 @@ class Permission extends Model
 
     protected $casts  = [
         'permission' => 'json'
-    ];
+    ]; 
  
     public function role(){
         return $this->belongsTo(Role::class);
