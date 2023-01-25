@@ -11,13 +11,13 @@ class Permission extends Model
     
     /**database field create */
     protected $fillable = [
-        'role_id',	'permission',
+        'role_id',	'permission', 
     ];
 
     protected $casts  = [
         'permission' => 'json'
     ];
-
+ 
     public function role(){
         return $this->belongsTo(Role::class);
     }

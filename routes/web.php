@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,9 @@ Route::group(["middleware" => ['auth']], function () {
     Route::resource('user', UserController::class);
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
     Route::get('logouts', [UserController::class, 'logouts'])->name('logouts');
-    Route::put('password/change', [UserController::class, 'change_password'])->name('password.change');
+    Route::put('password/change', [UserController::class, 'change_password'])->name('passworUserControllerd.change');
 
     /* setting */
     Route::resource('role', RoleController::class);
+    Route::resource('permission', PermissionController::class);
 });

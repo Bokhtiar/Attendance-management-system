@@ -30,7 +30,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#setting" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Employee</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-menu-button-wide"></i><span>Setting's</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="setting" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -38,6 +38,13 @@
                         <i class="bi bi-circle"></i><span>Role</span>
                     </a>
                 </li>
+
+                <li> 
+                    <a href="@route('permission.index')">
+                        <i class="bi bi-circle"></i><span>Permission</span>
+                    </a>
+                </li>
+
             </ul>
         </li><!-- End setting Nav -->
 
