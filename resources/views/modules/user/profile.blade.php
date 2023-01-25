@@ -141,7 +141,8 @@
                                     <div class="col-md-6">
                                         <input id="password" type="password"
                                             class="form-control py-3 @error('password') is-invalid @enderror"
-                                            name="old_password" required autocomplete="new-password" placeholder="password">
+                                            name="old_password" required autocomplete="new-password"
+                                            placeholder="password">
                                     </div>
                                 </div>
 
@@ -151,8 +152,9 @@
 
                                     <div class="col-md-6">
                                         <input id="password" type="password"
-                                            class="form-control py-3 @error('password') is-invalid @enderror" name="password"
-                                            required autocomplete="new-password" placeholder="new password">
+                                            class="form-control py-3 @error('password') is-invalid @enderror"
+                                            name="password" required autocomplete="new-password"
+                                            placeholder="new password">
 
                                     </div>
                                 </div>
@@ -164,7 +166,8 @@
                                     <div class="col-md-6">
                                         <input id="password" type="password"
                                             class="form-control py-3 @error('password') is-invalid @enderror"
-                                            name="password_confirmation" required autocomplete="new-password" placeholder="cofirm password" >
+                                            name="password_confirmation" required autocomplete="new-password"
+                                            placeholder="cofirm password">
 
                                     </div>
                                 </div>

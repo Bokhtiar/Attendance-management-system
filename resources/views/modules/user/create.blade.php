@@ -18,7 +18,7 @@
 
             @component('components.form.user', [
                 'edit' => @$edit,
-                'designations' => @$designations
+                'designations' => @$designations,
             ])
             @endcomponent
 

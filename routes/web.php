@@ -37,7 +37,7 @@ Route::group(["middleware" => ['auth']], function () {
     /* department */
     Route::resource('department', DepartmentController::class);
 
-/* designation */
+    /* designation */
     Route::resource('designation', DesignationController::class);
 
     /* setting */

@@ -26,7 +26,8 @@
                 <span><strong>Phone:</strong> {!! $show->phone !!} </span> <br>
                 <span><strong>Parmanent address:</strong> {!! $show->permanent_address !!} </span> <br>
                 <span><strong>Present address:</strong> {!! $show->present_address !!} </span> <br>
-                <span><strong>Designation:</strong> {{ $show->designation ? $show->designation->name : "" }} </span> <br>
+                <span><strong>Designation:</strong> {{ $show->designation ? $show->designation->name : '' }} </span>
+                <br>
                 <span><strong>Salary:</strong> {!! $show->salary !!} </span> <br>
             </div>
         </div>
