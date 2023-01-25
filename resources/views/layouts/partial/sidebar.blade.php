@@ -35,6 +35,25 @@
 
 
         <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#department" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Department</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="department" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        
+                    <li>
+                        <a href="@route('department.index')">
+                            <i class="bi bi-circle"></i><span>Department</span>
+                        </a>
+                    </li>
+              
+                    
+            
+            </ul>
+        </li><!-- End employee Nav -->
+
+
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#setting" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Setting's</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>

@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Department Store or updated</h5>
                     @component('components.form.department', [
-                        'edit' => @$edit,
+                        "edit" => @$edit,
                     ])
                     @endcomponent
                 </div>

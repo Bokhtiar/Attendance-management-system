@@ -3,6 +3,7 @@
 namespace App\Traits\Network;
 
 use App\Models\Department;
+use Illuminate\Support\Facades\Auth;
 
 trait DepartmentNetwork
 {
@@ -17,6 +18,7 @@ trait DepartmentNetwork
     {
         return array(
             'name' => $request->name,
+            'created_by' => Auth::id(),
         );
     }
 

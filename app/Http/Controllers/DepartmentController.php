@@ -2,50 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\Network\DepartmentNetwork;
+use COM;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use DepartmentNetwork;
+
+    /* Display a listing of the resource. */
     public function index()
     {
-        //
+        try {
+            $departments = $this->DepartmentList();
+            return view('modules.department.index', compact('departments'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /* Store a newly created resource in storage. */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->DepartmentStore($request);
+            return redirect()->back()->with('success', 'Department Created.');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    /* Display the specified resource. */
     public function show($id)
     {
-        //
+        try {
+            $show = $this->DepartmentFindById($id);
+            return view('modules.department.show', compact('show'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -56,7 +51,13 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $departments = $this->DepartmentList();
+            $edit = $this->DepartmentFindById($id);
+            return view('modules.department.index', compact('departments', 'edit'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -68,7 +69,12 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->DepartmentUpdate($request, $id);
+            return redirect()->route('department.index')->with('success', 'Department Updated.');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -79,6 +85,11 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->DepartmentFindById($id)->delete();
+            return redirect()->back()->with('success', 'Department Deleted.');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

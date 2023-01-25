@@ -11,9 +11,9 @@
         'label' => 'Name.',
         'type' => 'text',
         'name' => 'name',
-        'placeholder' => 'software eng.',
+        "placeholder" => "software eng.",
         'required' => true,
-        'value' => @$edit->name,
+        "value" => @$edit->name,
     ])
     @endcomponent
 
