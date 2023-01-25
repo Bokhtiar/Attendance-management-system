@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-@section('title', 'Role List')
+@section('title', 'Department List')
 
 @section('css')
 @endsection
@@ -12,10 +12,10 @@
 
             <!-- table resource show componemts -->
             @component('components.table.table', [
-                'title' => 'List of role',
-                'data' => $roles,
-                'id' => 'id',
-                'route' => 'role',
+                'title' => 'List of department',
+                'data' => $departments,
+                'id' => 'department_id',
+                'route' => 'department',
             
                 'thead1' => 'Name',
                 'tdata1' => 'name',
@@ -28,8 +28,8 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Vertical Form</h5>
-                    @component('components.form.role', [
+                    <h5 class="card-title">Department Store or updated</h5>
+                    @component('components.form.department', [
                         'edit' => @$edit,
                     ])
                     @endcomponent
