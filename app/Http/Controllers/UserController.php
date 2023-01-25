@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
+use App\Traits\Network\DesignationNetwork;
 use App\Traits\Network\UserNetwork;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    use UserNetwork;
+    use UserNetwork, DesignationNetwork;
     /* Display a listing of the resource. */
     public function index()
     {
@@ -27,7 +28,8 @@ class UserController extends Controller
     public function create()
     {
         try {
-            return view('modules.user.create');
+            $designations = $this->DesignationList();
+            return view('modules.user.create', compact('designations'));
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -59,8 +61,9 @@ class UserController extends Controller
     public function edit($id)
     {
         try {
+            $designations = $this->DesignationList();
             $edit = $this->UserFindById($id);
-            return view('modules.user.create', compact('edit'));
+            return view('modules.user.create', compact('edit', 'designations'));
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -96,8 +99,9 @@ class UserController extends Controller
     public function profile()
     {
         try {
+            $designations = $this->DesignationList();
             $user = $this->UserFindById(Auth::id());
-            return view('modules.user.profile', compact('user'));
+            return view('modules.user.profile', compact('user', 'designations'));
         } catch (\Throwable $th) {
             throw $th;
         }

@@ -1,4 +1,4 @@
-<div class="form-group{{ $errors->has($name) ? ' has-error' : '' }}">
+<div class="my-2 form-group{{ $errors->has($name) ? ' has-error' : '' }}">
     @if (isset($label))
         <label for="{{ $label }}" class="control-label">{{ $label }}</label>
     @endif

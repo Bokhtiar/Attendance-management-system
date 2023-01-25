@@ -32,7 +32,7 @@ Route::group(["middleware" => ['auth']], function () {
     Route::resource('user', UserController::class);
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
     Route::get('logouts', [UserController::class, 'logouts'])->name('logouts');
-    Route::put('password/change', [UserController::class, 'change_password'])->name('passworUserControllerd.change');
+    Route::put('password/change', [UserController::class, 'change_password'])->name('password.change');
 
     /* department */
     Route::resource('department', DepartmentController::class);

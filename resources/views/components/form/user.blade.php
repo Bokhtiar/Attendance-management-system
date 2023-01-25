@@ -88,12 +88,14 @@
 
 
     <div class="col-md-6 col-lg-6 col-sm-12">
-        @component('components.text-input', [
-            'label' => 'Designation',
-            'type' => 'text',
+        @component('components.select-input', [
+            'id' => 'designation_id',
             'name' => 'designation_id',
-            'placeholder' => '1',
-            'value' => @$edit->designation_id,
+            'resource' => $designations,
+            'field_id' => 'designation_id',
+            'label' => 'Select designation',
+            'field_name' => 'name',
+            'value' => @$edit ? @$edit->designation_id : '',
         ])
         @endcomponent
     </div>
