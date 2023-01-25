@@ -28,4 +28,17 @@ trait DesignationNetwork
     {
         return Designation::create($this->ResourceStoreDesignation($request));
     }
+
+    /* single resource show */
+    public function DesignationFindById($designation_id)
+    {
+        return Designation::find($designation_id);
+    }
+
+    /* resource update */
+    public function DesignationUpdate($request, $id)
+    {
+        $designation = Designation::find($id);
+        return $designation->update($this->ResourceStoreDesignation($request, $designation));
+    }
 }
