@@ -80,16 +80,22 @@
                         @endisset
 
                         <td class="form-inline">
-                            <a class="btn btn-sm btn-info text-light" href="@route($route . '.show', $item->$id)"> <i
-                                    class="ri-eye-fill"></i></a>
-                            <a class="btn btn-sm btn-primary" href="@route($route . '.edit', $item->$id)"> <i
-                                    class="ri-edit-box-fill"></i></a>
-                            <form method="POST" action="@route($route . '.destroy', $item->$id)" class="mt-1">
-                                @csrf
-                                @method('Delete')
-                                <button class="btn btn-sm btn-danger" type="submit"> <i
-                                        class="ri-delete-bin-6-fill"></i></button>
-                            </form>
+                            @isset(auth()->user()->role->permission['permission'][$route]['view'])
+                                <a class="btn btn-sm btn-info text-light" href="@route($route . '.show', $item->$id)"> <i
+                                        class="ri-eye-fill"></i></a>
+                            @endisset
+                            @isset(auth()->user()->role->permission['permission'][$route]['edit'])
+                                <a class="btn btn-sm btn-primary" href="@route($route . '.edit', $item->$id)"> <i
+                                        class="ri-edit-box-fill"></i></a>
+                            @endisset
+                            @isset(auth()->user()->role->permission['permission'][$route]['delete'])
+                                <form method="POST" action="@route($route . '.destroy', $item->$id)" class="mt-1">
+                                    @csrf
+                                    @method('Delete')
+                                    <button class="btn btn-sm btn-danger" type="submit"> <i
+                                            class="ri-delete-bin-6-fill"></i></button>
+                                </form>
+                            @endisset
                         </td>
                     </tr>
                 @empty
