@@ -86,7 +86,12 @@ class SalaryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->SalaryUpdate($request, $id);
+            return redirect()->route('salary.index')->with('success', "Salary updated.");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -97,6 +102,11 @@ class SalaryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->SalaryFindById($id)->delete();
+            return redirect()->route('salary.index')->with('success', "Salary deleted.");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }
