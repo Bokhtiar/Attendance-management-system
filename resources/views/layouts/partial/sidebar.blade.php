@@ -34,6 +34,7 @@
         @endisset
 
 
+        @isset(auth()->user()->role->permission['permission']['department']['list'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#department" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Department</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -45,13 +46,11 @@
                         <i class="bi bi-circle"></i><span>Department</span>
                     </a>
                 </li>
-
-
-
             </ul>
         </li><!-- End Department Nav -->
+        @endisset
 
-
+        @isset(auth()->user()->role->permission['permission']['designation']['list'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#designation" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Designation</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -64,26 +63,32 @@
                 </li>
             </ul>
         </li><!-- End designation Nav -->
+        @endisset
 
+        @isset(auth()->user()->role->permission['permission']['attendance']['list'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#attendance" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Attendance</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="attendance" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                @isset(auth()->user()->role->permission['permission']['attendance']['list'])
                 <li>
                     <a href="@route('attendance.index')">
                         <i class="bi bi-circle"></i><span>Attendance</span>
                     </a>
                 </li>
+                @endisset
+                @isset(auth()->user()->role->permission['permission']['attendance']['add'])
 
                 <li>
                     <a href="@route('attendance.create')">
                         <i class="bi bi-circle"></i><span>Attendance Create</span>
                     </a>
                 </li>
+                @endisset
             </ul>
         </li><!-- End designation Nav -->
-
+        @endisset
 
 
         <li class="nav-item">
@@ -111,26 +116,31 @@
         </li><!-- End setting Nav -->
 
 
+        @isset(auth()->user()->role->permission['permission']['leave']['list'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#leave" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Leave</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="leave" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                @isset(auth()->user()->role->permission['permission']['leave']['list'])
                 <li>
                     <a href="@route('leave.index')">
+                        <i class="bi bi-circle"></i><span>Leave application list</span>
+                    </a>
+                </li>
+                @endisset
+                @isset(auth()->user()->role->permission['permission']['leave']['add'])
+                <li>
+                    <a href="@route('leave.create')">
                         <i class="bi bi-circle"></i><span>Leave application</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="@route('leave.create')">
-                        <i class="bi bi-circle"></i><span>Summary leave</span>
-                    </a>
-                </li>
+                @endisset
             </ul>
         </li><!-- End Report Nav -->
+        @endisset
 
-
+        @isset(auth()->user()->role->permission['permission']['report']['list'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#report" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Report</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -149,7 +159,7 @@
                 </li>
             </ul>
         </li><!-- End Report Nav -->
-
+        @endisset
         <li class="nav-item">
             <a class="nav-link " href="">
                 <i class="bi bi-grid"></i>

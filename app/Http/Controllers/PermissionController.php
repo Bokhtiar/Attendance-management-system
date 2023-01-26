@@ -68,7 +68,7 @@ class PermissionController extends Controller
             throw $th;
         }
     }
-
+ 
     /**
      * Update the specified resource in storage.
      *

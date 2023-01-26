@@ -21,7 +21,7 @@
                 @error('role_id')
                 <span class="text-danger">
                           {{$message}}
-                      </span>
+                      </span> 
                 @enderror
             </div>
           
@@ -69,6 +69,47 @@
                     <td><input type="checkbox" name="permission[user][view]" value="1"></td>
                     <td><input type="checkbox" name="permission[user][delete]" value="1"></td>
                     <td><input type="checkbox" name="permission[user][list]" value="1"></td>
+                </tr>
+
+                <tr>
+                    <td>Department</td>
+                    <td><input type="checkbox" name="permission[department][add]" value="1"></td>
+                    <td><input type="checkbox" name="permission[department][edit]" value="1"></td>
+                    <td><input type="checkbox" name="permission[department][view]" value="1"></td>
+                    <td><input type="checkbox" name="permission[department][delete]" value="1"></td>
+                    <td><input type="checkbox" name="permission[department][list]" value="1"></td>
+                </tr>
+
+                <tr>
+                    <td>Designation</td>
+                    <td><input type="checkbox" name="permission[designation][add]" value="1"></td>
+                    <td><input type="checkbox" name="permission[designation][edit]" value="1"></td>
+                    <td><input type="checkbox" name="permission[designation][view]" value="1"></td>
+                    <td><input type="checkbox" name="permission[designation][delete]" value="1"></td>
+                    <td><input type="checkbox" name="permission[designation][list]" value="1"></td>
+                </tr>
+
+                <tr>
+                    <td>Attendance</td>
+                    <td><input type="checkbox" name="permission[attendance][add]" value="1"></td>
+                    <td><input type="checkbox" name="permission[attendance][edit]" value="1"></td>
+                    <td><input type="checkbox" name="permission[attendance][view]" value="1"></td>
+                    <td><input type="checkbox" name="permission[attendance][delete]" value="1"></td>
+                    <td><input type="checkbox" name="permission[attendance][list]" value="1"></td>
+                </tr>
+                
+                <tr>
+                    <td>Leave</td>
+                    <td><input type="checkbox" name="permission[leave][add]" value="1"></td>
+                    <td><input type="checkbox" name="permission[leave][edit]" value="1"></td>
+                    <td><input type="checkbox" name="permission[leave][view]" value="1"></td>
+                    <td><input type="checkbox" name="permission[leave][delete]" value="1"></td>
+                    <td><input type="checkbox" name="permission[leave][list]" value="1"></td>
+                </tr>
+
+                <tr>
+                    <td>Report</td>
+                    <td><input type="checkbox" name="permission[report][list]" value="1"></td>
                 </tr>
                 
                 </tbody>
