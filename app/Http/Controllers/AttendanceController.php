@@ -63,15 +63,15 @@ class AttendanceController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Attendance $attendance)
+    /* Display the specified resource. */
+    public function show($id)
     {
-        //
+        try {
+            $item = Attendance::find($id);
+            return view('modules.attendance.show', compact('item'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**

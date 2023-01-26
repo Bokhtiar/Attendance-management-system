@@ -30,13 +30,16 @@ trait AttendanceNetwork
         //$ip = request()->ip(); //Dynamic IP address get
         $data = \Location::get($ip);
 
+
         return array(
             'user_id' => Auth::id(),
             'in' => $todayTime,
             'date' => $date['day'],
             'month' => $date['month'],
             'year' => $date['year'],
-            'location' => $data->countryName . ' ' . $data->regionName . ' ' . $data->cityName . ' ' . $data->zipCode
+            'location' => $data->countryName . ' ' . $data->regionName . ' ' . $data->cityName . ' ' . $data->zipCode,
+            'let' => $data->latitude,
+            'lon' => $data->longitude
         );
     }
 

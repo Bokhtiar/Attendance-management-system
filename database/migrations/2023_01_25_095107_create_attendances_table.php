@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('month');
             $table->string('year');
             $table->string('location');
+            $table->string('let');
+            $table->string('lon');
             $table->timestamps();
         });
     }

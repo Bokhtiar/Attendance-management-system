@@ -109,4 +109,23 @@ class SalaryController extends Controller
             throw $th;
         }
     }
+
+    public function status($id)
+    {
+        try {
+            $status = $this->SalaryFindById($id);
+            if ($status->status == 1) {
+                $status->status = 0;
+                $status->save();
+                return back()->with('warning', 'Salary status updated');
+            } else {
+                $status->status = 1;
+                $status->save();
+                return back()->with('warning', 'Salary status updated');
+            }
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
 }

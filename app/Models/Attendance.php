@@ -19,6 +19,8 @@ class Attendance extends Model
         'month',
         'year',
         'location',
+        'let',
+        'lon',
     ];
 
     public function user()

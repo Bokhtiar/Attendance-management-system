@@ -24,6 +24,9 @@
             
                 'thead2' => 'amount',
                 'tdata2' => 'amount',
+            
+                'thead3' => 'date',
+                'tdata2' => 'created_at',
             ])
             @endcomponent
 
