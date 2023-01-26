@@ -16,6 +16,7 @@
                 'data' => $departments,
                 'id' => 'department_id',
                 'route' => 'department',
+                'status' => false,
             
                 'thead1' => 'Name',
                 'tdata1' => 'name',

@@ -55,6 +55,7 @@ Route::group(["middleware" => ['auth']], function () {
 
     /* leave */
     Route::resource('leave', LeaveController::class);
+    Route::get('leave/status/{id}', [LeaveController::class, 'status'])->name('leave.status');
 
     /* setting */
     Route::resource('role', RoleController::class);

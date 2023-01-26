@@ -16,6 +16,7 @@
                 'data' => $users,
                 'id' => 'id',
                 'route' => 'user',
+                'status' => false,
             
                 'thead1' => 'First Name',
                 'tdata1' => 'f_name',

@@ -16,6 +16,7 @@
                 'data' => $roles,
                 'id' => 'id',
                 'route' => 'role',
+                'status' => false,
             
                 'thead1' => 'Name',
                 'tdata1' => 'name',

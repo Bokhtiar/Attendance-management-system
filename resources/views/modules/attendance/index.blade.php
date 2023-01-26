@@ -16,6 +16,7 @@
                 'data' => $attendances,
                 'id' => 'attendance_id',
                 'route' => 'attendance',
+                'status' => false,
             
                 'thead1' => 'Employee', //if you want reletion another table must be assign in thead 1,2,3
                 'reletion1' => 'user', //easir loading reletion name

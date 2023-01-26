@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('resone')->required();
             $table->string('start_date');
             $table->string('end_date');
-            $table->tinyInteger('is_approved')->default(0);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

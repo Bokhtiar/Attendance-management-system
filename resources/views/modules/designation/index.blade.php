@@ -16,6 +16,7 @@
                 'data' => $designations,
                 'id' => 'designation_id',
                 'route' => 'designation',
+                'status' => false,
             
                 'thead1' => 'Department', //if you want reletion another table must be assign in thead 1,2,3
                 'reletion1' => 'department', //easir loading reletion name

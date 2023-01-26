@@ -26,6 +26,9 @@
                         <th scope="col">{{ $thead4 }}</th>
                     @endisset
 
+                    @if ($status == true)
+                        <th scope="col">Status</th>
+                    @endif
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -78,6 +81,19 @@
                         @isset($tdata4)
                             <td scope="col"> {{ $item->$tdata4 }} </td>
                         @endisset
+
+                        @if (@$status == true)
+                            <td>
+                                @if ($item->status == 1)
+                                    <a class="btn btn-sm btn-success"
+                                        href="{{ route($route . '.status', $item->$id) }}"><i
+                                            class="bi bi-check-circle"></i></a>
+                                @else
+                                    <a class="btn btn-warning btn-sm" href="@route($route . '.status', $item->$id)"><i
+                                            class="bi bi-exclamation-triangle"></i></a>
+                                @endif
+                            </td>
+                        @endif
 
                         <td class="form-inline">
                             @isset(auth()->user()->role->permission['permission'][$route]['view'])
