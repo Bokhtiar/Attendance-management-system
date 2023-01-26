@@ -45,7 +45,7 @@
     </div>
     <!-- end date -->
 
-    @component('components.primary-button', ['name' => @$edit ? 'Update employee' : 'Create employee'])
+    @component('components.primary-button', ['name' => @$edit ? 'Update Leave Application' : 'Crete Leave Application '])
     @endcomponent
 
 

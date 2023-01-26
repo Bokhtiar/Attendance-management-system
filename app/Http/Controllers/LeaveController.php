@@ -2,33 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\Network\LeaveNetwork;
 use Illuminate\Http\Request;
 
 class LeaveController extends Controller
 {
-    /**
-     * Display a listing of the resource. 
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use LeaveNetwork;
+
+    /* Display a listing of the resource. */
     public function index()
     {
-        //
+        try {
+            $leaves = $this->LeaveList();
+            return view('modules.leave.index', compact('leaves'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /* Show the form for creating a new resource. */
     public function create()
     {
         try {
             return view('modules.leave.create');
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
-    } 
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,7 +38,12 @@ class LeaveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->LeaveStore($request);
+            return redirect()->route('leave.index')->with('success', "Leave Application created");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

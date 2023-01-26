@@ -12,22 +12,20 @@
 
             <!-- table resource show componemts -->
             @component('components.table.table', [
-                'title' => 'List of user',
-                'data' => $users,
-                'id' => 'id',
-                'route' => 'user',
+                'title' => 'List of Leave application',
+                'data' => $leaves,
+                'id' => 'leave_id',
+                'route' => 'leave',
             
-                'thead1' => 'First Name',
-                'tdata1' => 'f_name',
+                'thead1' => 'Employee', //if you want reletion another table must be assign in thead 1,2,3
+                'reletion1' => 'user', //easir loading reletion name
+                'reletion1Field_name' => 'f_name', //this is reletion field thatway i am not use tdata1
             
-                'thead2' => 'Last Name',
-                'tdata2' => 'l_name',
+                'thead2' => 'Start date',
+                'tdata2' => 'start_date',
             
-                'thead3' => 'Email',
-                'tdata3' => 'email',
-            
-                'thead4' => 'Phone',
-                'tdata4' => 'phone',
+                'thead3' => 'End date',
+                'tdata3' => 'end_date',
             ])
             @endcomponent
 
