@@ -4,6 +4,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -40,11 +41,15 @@ Route::group(["middleware" => ['auth']], function () {
 
     /* designation */
     Route::resource('designation', DesignationController::class);
-
+ 
     /* attendance */
     Route::resource('attendance', AttendanceController::class);
     Route::get('punch/in', [AttendanceController::class, 'punchIn']);
     Route::get('punch/out', [AttendanceController::class, 'punchOut']);
+ 
+    /* report */
+    Route::get('report/individual', [ReportController::class, 'individual'])->name('report.individual');
+    Route::post('report/search', [ReportController::class, 'individual'])->name('report.search');
 
     /* setting */
     Route::resource('role', RoleController::class);
