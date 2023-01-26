@@ -24,7 +24,7 @@ trait SalaryNetwork
     {
         return array(
             'user_id' => $request->user_id,
-            'created_by' => Auth::id(),
+            'created_by' => Auth::user()->id,
             'amount' => $request->amount,
         );
     }

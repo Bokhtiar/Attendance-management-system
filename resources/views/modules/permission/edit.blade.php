@@ -227,6 +227,32 @@
                                 </tr>
                                 {{-- Leave end  --}}
 
+
+                                <tr>
+                                    <td>Salary</td>
+                                    <td>
+                                        <input type="checkbox" name="permission[salary][add]"
+                                            @isset($permission['permission']['salary']['add']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[salary][edit]"
+                                            @isset($permission['permission']['salary']['edit']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[salary][view]"
+                                            @isset($permission['permission']['salary']['view']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[salary][delete]"
+                                            @isset($permission['permission']['salary']['delete']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[salary][list]"
+                                            @isset($permission['permission']['salary']['list']) checked @endisset value="1">
+                                    </td>
+                                </tr>
+                                {{-- Leave end  --}}
+
                                 <tr>
                                     <td>Leave</td>
                                     <td>

@@ -108,6 +108,15 @@
                 </tr>
 
                 <tr>
+                    <td>Salary</td>
+                    <td><input type="checkbox" name="permission[salary][add]" value="1"></td>
+                    <td><input type="checkbox" name="permission[salary][edit]" value="1"></td>
+                    <td><input type="checkbox" name="permission[salary][view]" value="1"></td>
+                    <td><input type="checkbox" name="permission[salary][delete]" value="1"></td>
+                    <td><input type="checkbox" name="permission[salary][list]" value="1"></td>
+                </tr>
+
+                <tr>
                     <td>Report</td>
                     <td><input type="checkbox" name="permission[report][list]" value="1"></td>
                 </tr>

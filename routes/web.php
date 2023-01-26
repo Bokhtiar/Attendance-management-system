@@ -7,6 +7,7 @@ use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,10 @@ Route::group(["middleware" => ['auth']], function () {
     /* leave */
     Route::resource('leave', LeaveController::class);
     Route::get('leave/status/{id}', [LeaveController::class, 'status'])->name('leave.status');
+
+     /* salary */
+     Route::resource('salary', SalaryController::class);
+     Route::get('salary/status/{id}', [SalaryController::class, 'status'])->name('salary.status');
 
     /* setting */
     Route::resource('role', RoleController::class);

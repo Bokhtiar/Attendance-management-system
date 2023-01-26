@@ -140,6 +140,33 @@
         </li><!-- End Report Nav -->
         @endisset
 
+
+        @isset(auth()->user()->role->permission['permission']['salary']['list'])
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#salary" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Salary</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="salary" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                @isset(auth()->user()->role->permission['permission']['salary']['list'])
+                <li>
+                    <a href="@route('salary.index')">
+                        <i class="bi bi-circle"></i><span>Salary list</span>
+                    </a>
+                </li>
+                @endisset
+                @isset(auth()->user()->role->permission['permission']['salary']['add'])
+                <li>
+                    <a href="@route('salary.create')">
+                        <i class="bi bi-circle"></i><span>Salary Create</span>
+                    </a>
+                </li>
+                @endisset
+            </ul>
+        </li><!-- End Report Nav -->
+        @endisset
+
+        
+
         @isset(auth()->user()->role->permission['permission']['report']['list'])
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#report" data-bs-toggle="collapse" href="#">
@@ -160,6 +187,8 @@
             </ul>
         </li><!-- End Report Nav -->
         @endisset
+
+        
         <li class="nav-item">
             <a class="nav-link " href="">
                 <i class="bi bi-grid"></i>

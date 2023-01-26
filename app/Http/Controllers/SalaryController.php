@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SalaryValidation;
+use App\Traits\Network\SalaryNetwork;
+use App\Traits\Network\UserNetwork;
 use Illuminate\Http\Request;
 
 class SalaryController extends Controller
 {
+    use SalaryNetwork, UserNetwork;
+
     /**
      * Display a listing of the resource.
      *
@@ -13,17 +18,13 @@ class SalaryController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        try {
+            $users = $this->userList();
+            $salaries = $this->SalaryList();
+            return view('modules.salary.index', compact('salaries', 'users'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -32,9 +33,14 @@ class SalaryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SalaryValidation $request)
     {
-        //
+        try {
+            $this->SalaryStore($request);
+            return redirect()->route('salary.index')->with('success', 'Salary Created.');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -45,7 +51,12 @@ class SalaryController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $show = $this->SalaryFindById($id);
+            return view('modules.salary.show', compact('show'));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**
@@ -56,7 +67,14 @@ class SalaryController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $users = $this->userList();
+            $salaries = $this->SalaryList();
+            $edit = $this->SalaryFindById($id);
+            return view('modules.salary.index', compact('salaries', 'users', 'edit'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
