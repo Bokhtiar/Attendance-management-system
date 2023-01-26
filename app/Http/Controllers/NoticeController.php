@@ -57,7 +57,12 @@ class NoticeController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $show = $this->NoticeFindById($id);
+            return view('modules.notice.show', compact('show'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -68,7 +73,12 @@ class NoticeController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $edit = $this->NoticeFindById($id);
+            return view('modules.notice.createUpdate', compact('edit'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -80,7 +90,12 @@ class NoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $this->NoticeUpdate($request, $id);
+            return redirect()->route('notice.index')->with('success', "Notice updated.");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -91,6 +106,11 @@ class NoticeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->NoticeFindById($id)->delete();
+            return back()->with('success', "Notice deleted.");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

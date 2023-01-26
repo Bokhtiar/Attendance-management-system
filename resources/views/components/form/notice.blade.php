@@ -13,7 +13,7 @@
             'type' => 'file',
             'name' => 'image',
             'placeholder' => '',
-            'required' => true,
+            'required' => false,
             'value' => @$edit->image,
         ])
         @endcomponent
@@ -47,7 +47,7 @@
             'label' => 'Description',
             'name' => 'long_des',
             'placeholder' => 'description...',
-            'value' => @$edit->logn_des,
+            'value' => @$edit->long_des,
         ])
         @endcomponent
     </div>

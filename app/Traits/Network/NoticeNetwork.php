@@ -51,6 +51,6 @@ trait NoticeNetwork
     public function NoticeUpdate($request, $id)
     {
         $notice = Notice::find($id);
-        return $notice->update($this->ResourceStoreDesignation($request, $notice));
+        return $notice->update($this->ResourceStoreNotice($request, $notice));
     }
 }
