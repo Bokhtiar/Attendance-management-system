@@ -4,6 +4,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
@@ -43,12 +44,12 @@ Route::group(["middleware" => ['auth']], function () {
 
     /* designation */
     Route::resource('designation', DesignationController::class);
- 
+
     /* attendance */
     Route::resource('attendance', AttendanceController::class);
     Route::get('punch/in', [AttendanceController::class, 'punchIn']);
     Route::get('punch/out', [AttendanceController::class, 'punchOut']);
- 
+
     /* report */
     Route::get('report/individual', [ReportController::class, 'individual'])->name('report.individual');
     Route::post('report/search', [ReportController::class, 'individual'])->name('report.search');
@@ -58,10 +59,13 @@ Route::group(["middleware" => ['auth']], function () {
     Route::resource('leave', LeaveController::class);
     Route::get('leave/status/{id}', [LeaveController::class, 'status'])->name('leave.status');
 
-     /* salary */
-     Route::resource('salary', SalaryController::class);
-     Route::get('salary/status/{id}', [SalaryController::class, 'status'])->name('salary.status');
+    /* salary */
+    Route::resource('salary', SalaryController::class);
+    Route::get('salary/status/{id}', [SalaryController::class, 'status'])->name('salary.status');
 
+    /* notice */
+    Route::resource('notice', NoticeController::class);
+ 
     /* setting */
     Route::resource('role', RoleController::class);
     Route::resource('permission', PermissionController::class);

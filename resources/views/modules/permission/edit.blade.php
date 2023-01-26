@@ -278,6 +278,31 @@
                                 </tr>
                                 {{-- Leave end  --}}
 
+                                <tr>
+                                    <td>Notice</td>
+                                    <td>
+                                        <input type="checkbox" name="permission[notice][add]"
+                                            @isset($permission['permission']['notice']['add']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[notice][edit]"
+                                            @isset($permission['permission']['notice']['edit']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[notice][view]"
+                                            @isset($permission['permission']['notice']['view']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[notice][delete]"
+                                            @isset($permission['permission']['notice']['delete']) checked @endisset value="1">
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="permission[notice][list]"
+                                            @isset($permission['permission']['notice']['list']) checked @endisset value="1">
+                                    </td>
+                                </tr>
+                                {{-- Leave end  --}}
+
 
                                 <tr>
                                     <td>Report</td>

@@ -188,9 +188,31 @@
         </li><!-- End Report Nav -->
         @endisset
 
+
+        @isset(auth()->user()->role->permission['permission']['notice']['list'])
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#notice" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Notice</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="notice" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="@route('notice.index')">
+                        <i class="bi bi-circle"></i><span>Notice list</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@route('notice.create')">
+                        <i class="bi bi-circle"></i><span>Notice Create</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Report Nav -->
+        @endisset
+
         
         <li class="nav-item">
-            <a class="nav-link " href="">
+            <a class="nav-link " href="{{url('logouts')}}"> 
                 <i class="bi bi-grid"></i>
                 <span>Logout</span>
             </a>
