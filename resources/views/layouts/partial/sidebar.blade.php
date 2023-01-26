@@ -112,6 +112,26 @@
 
 
         <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#leave" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Leave</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="leave" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="@route('leave.index')">
+                        <i class="bi bi-circle"></i><span>Leave application</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@route('leave.store')">
+                        <i class="bi bi-circle"></i><span>Summary leave</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Report Nav -->
+
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#report" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Report</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
@@ -51,6 +52,9 @@ Route::group(["middleware" => ['auth']], function () {
     Route::get('report/individual', [ReportController::class, 'individual'])->name('report.individual');
     Route::post('report/search', [ReportController::class, 'individual'])->name('report.search');
     Route::get('report/summary', [ReportController::class, 'summary'])->name('report.summary');
+
+    /* leave */
+    Route::resource('leave', LeaveController::class);
 
     /* setting */
     Route::resource('role', RoleController::class);
