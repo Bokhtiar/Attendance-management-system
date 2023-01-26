@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LeaveValidation;
+use App\Models\Leave;
 use App\Traits\Network\LeaveNetwork;
 use Illuminate\Http\Request;
 
@@ -36,7 +38,7 @@ class LeaveController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LeaveValidation $request)
     {
         try {
             $this->LeaveStore($request);
@@ -54,7 +56,12 @@ class LeaveController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $show = $this->LeaveFindById($id);
+            return view('modules.leave.show', compact('show'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -65,7 +72,12 @@ class LeaveController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $edit = $this->LeaveFindById($id);
+            return view('modules.leave.create',compact('edit'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -75,9 +87,14 @@ class LeaveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LeaveValidation $request, $id)
     {
-        //
+        try {
+            $this->LeaveUpdate($request, $id);
+            return redirect()->route('leave.index')->with('success', 'Leave application updated');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**
@@ -88,6 +105,11 @@ class LeaveController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->LeaveFindById($id)->delete();
+            return redirect()->route('leave.index')->with('success', 'Leave application deleted');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }
