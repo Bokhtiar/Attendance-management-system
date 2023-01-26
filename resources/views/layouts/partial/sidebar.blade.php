@@ -123,7 +123,7 @@
                 </li>
 
                 <li>
-                    <a href="@route('user.create')">
+                    <a href="@route('report.summary')">
                         <i class="bi bi-circle"></i><span>Summary report</span>
                     </a>
                 </li>

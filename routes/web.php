@@ -50,6 +50,7 @@ Route::group(["middleware" => ['auth']], function () {
     /* report */
     Route::get('report/individual', [ReportController::class, 'individual'])->name('report.individual');
     Route::post('report/search', [ReportController::class, 'individual'])->name('report.search');
+    Route::get('report/summary', [ReportController::class, 'summary'])->name('report.summary');
 
     /* setting */
     Route::resource('role', RoleController::class);
