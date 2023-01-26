@@ -123,7 +123,7 @@
                 </li>
 
                 <li>
-                    <a href="@route('leave.store')">
+                    <a href="@route('leave.create')">
                         <i class="bi bi-circle"></i><span>Summary leave</span>
                     </a>
                 </li>

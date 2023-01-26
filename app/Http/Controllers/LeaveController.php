@@ -23,7 +23,11 @@ class LeaveController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            return view('modules.leave.create');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     } 
 
     /**
