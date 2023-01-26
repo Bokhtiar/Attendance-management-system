@@ -10,8 +10,16 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\UserController;
+use App\Models\Attendance;
+use App\Models\Department;
+use App\Models\Designation;
+use App\Models\Leave;
+use App\Models\Notice;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Traits\Network\UserNetwork;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +33,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    if(Auth::user()->role_id == 1){
+        return redirect()->route('profile');
+    }else{
+        $total_employee = User::where('role_id', 1)->count();
+        $total_department = Department::count();
+        $total_designation = Designation::count();
+        $total_notice = Notice::count();
+        $attendances = Attendance::latest()->get();
+        $notices = Notice::latest()->get();
+        return view('dashboard', compact('total_employee','total_department', 'total_designation', 'total_notice', 'attendances', 'notices'));
+    }
 })->middleware('auth');;
 
 Auth::routes(['register' => false]);
