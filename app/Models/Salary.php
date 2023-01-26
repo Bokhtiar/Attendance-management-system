@@ -18,8 +18,8 @@ class Salary extends Model
     ];
 
     /* reletion pepartment */
-    public function department()
+    public function user()
     {
-        return $this->belongsTo(Department::class, 'department_id', 'department_id');
+        return $this->belongsTo(user::class);
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('salary_id');
             $table->integer('user_id')->required();
             $table->string('amount')->required();
+            $table->integer('created_by')->required();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
