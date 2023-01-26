@@ -31,7 +31,7 @@ trait NoticeNetwork
             'image' => $imageName,
             'title' => $request->title,
             'short_des' => $request->short_des,
-            'log_des' => $request->long_des,
+            'long_des' => $request->long_des,
         );
     }
 

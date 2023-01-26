@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\Network\NoticeNetwork;
 use Illuminate\Http\Request;
 
 class NoticeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use NoticeNetwork;
+    /* Display a listing of the resource.*/
     public function index()
     {
-        //
+        try {
+            $notices = $this->NoticeList();
+            return view('modules.notice.index', compact('notices'));
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -23,7 +26,11 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            return view('modules.notice.createUpdate');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -34,7 +41,12 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->NoticeStore($request);
+            return redirect()->route('notice.index')->with('success', "Notice Created.");
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

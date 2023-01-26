@@ -9,6 +9,18 @@
 <div class="section">
     <div class="col-md-12 col-lg-12 col-sm-12">
         @component('components.text-input', [
+            'label' => 'Image.',
+            'type' => 'file',
+            'name' => 'image',
+            'placeholder' => '',
+            'required' => true,
+            'value' => @$edit->image,
+        ])
+        @endcomponent
+    </div>
+
+    <div class="col-md-12 col-lg-12 col-sm-12">
+        @component('components.text-input', [
             'label' => 'title.',
             'type' => 'text',
             'name' => 'title',
@@ -18,6 +30,7 @@
         ])
         @endcomponent
     </div>
+
     <div class="col-md-12 col-lg-12 col-sm-12">
         @component('components.text-input', [
             'label' => 'Short description.',
